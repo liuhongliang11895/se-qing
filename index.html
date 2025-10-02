@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會員專區</title>
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '你的-Pixel-ID'); 
+    fbq('track', 'PageView');
+  </script>
+</head>
+<body>
+
+  <!-- 頂部 Banner 輪播 -->
+  <div class="carousel">
+    <div class="slides">
+      <img src="static/picture/banner1.jpg" alt="Banner 1">
+      <img src="static/picture/banner2.jpg" alt="Banner 2">
+      <img src="static/picture/banner3.jpg" alt="Banner 3">
+    </div>
+  </div>
+
+  <!-- 會員卡片 -->
+  <section class="member-section">
+    <h2>會員卡片</h2>
+    <div class="member-grid">
+      <div class="card">會員 A</div>
+      <div class="card">會員 B</div>
+      <div class="card">會員 C</div>
+      <div class="card">會員 D</div>
+    </div>
+  </section>
+
+  <!-- Line 按鈕 -->
+  <div class="line-btn">
+    <button onclick="addLine()">加入 Line</button>
+  </div>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>
