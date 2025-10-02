@@ -1,84 +1,57 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>與高品質女性的相遇</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="static/css/style.css">
-
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s){
-            if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)
-        }(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1287795045926416');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none" 
-            src="https://www.facebook.com/tr?id=1287795045926416&ev=PageView&noscript=1">
-    </noscript>
-    <!-- End Meta Pixel Code -->
-
-    <style>
-        /* 你原來的 CSS 可以留在 style.css 內，這裡留空或放簡單調整 */
-        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8f8f8; }
-    </style>
+    <script src="static/js/script.js" defer></script>
 </head>
 <body>
-    <!-- Floating Line Icon -->
-    <div class="floating-icons">
-        <div class="floating-icon line-bg breathe" onclick="addLine()">
-            <i class="fab fa-line"></i>
-            <div class="notification-badge breathe">1</div>
-        </div>
-    </div>
 
-    <!-- Hero Section -->
-    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden" id="hero-section">
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-                與高品質女性的相遇<br>
-                <span class="text-yellow-300">特別的相遇</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-white opacity-90 max-w-3xl mx-auto">
-                這裡聚集了許多高品質的女性，期待能與你相遇，共同創造美好的時刻
-            </p>
-
-            <!-- Image Carousel -->
-            <div class="relative max-w-4xl mx-auto mt-8">
-                <div id="carousel" class="carousel flex overflow-x-auto space-x-4 pb-4 snap-x snap-mandatory">
-                    <div class="flex-none w-64 h-80 snap-center">
-                        <img src="static/picture/8.jpg" alt="Profile 1" class="w-full h-full object-cover rounded-2xl shadow-2xl">
-                    </div>
-                    <div class="flex-none w-64 h-80 snap-center">
-                        <img src="static/picture/7.jpg" alt="Profile 2" class="w-full h-full object-cover rounded-2xl shadow-2xl">
-                    </div>
-                    <div class="flex-none w-64 h-80 snap-center">
-                        <img src="static/picture/3.jpg" alt="Profile 3" class="w-full h-full object-cover rounded-2xl shadow-2xl">
-                    </div>
-                </div>
+    <!-- Hero Carousel -->
+    <section id="hero-section">
+        <div id="carousel">
+            <div class="carousel-item">
+                <img src="static/picture/banner1.jpg" alt="Banner 1">
+            </div>
+            <div class="carousel-item">
+                <img src="static/picture/banner2.jpg" alt="Banner 2">
+            </div>
+            <div class="carousel-item">
+                <img src="static/picture/banner3.jpg" alt="Banner 3">
+            </div>
+            <div class="carousel-item">
+                <img src="static/picture/banner4.jpg" alt="Banner 4">
+            </div>
+            <div class="carousel-item">
+                <img src="static/picture/banner5.jpg" alt="Banner 5">
+            </div>
+            <div class="carousel-item">
+                <img src="static/picture/banner6.jpg" alt="Banner 6">
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="section3" class="py-20 gradient-bg text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">查看更多個人資料</h2>
-        <button onclick="addLine()" class="w-64 bg-green-500 text-white py-3 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300">
-            透過 Line 聯絡
-        </button>
+    <!-- Profiles Grid -->
+    <section id="profiles">
+        <div class="profile">
+            <img src="static/picture/banner1.jpg" alt="Profile 1">
+            <h3>25歲，學生</h3>
+            <p>距離：1.2 公里 • 身高：162cm</p>
+        </div>
+        <div class="profile">
+            <img src="static/picture/banner2.jpg" alt="Profile 2">
+            <h3>23歲，銀行經理</h3>
+            <p>距離：2.2 公里 • 身高：171cm</p>
+        </div>
+        <div class="profile">
+            <img src="static/picture/banner3.jpg" alt="Profile 3">
+            <h3>24歲，護理師</h3>
+            <p>距離：2.3 公里 • 身高：167cm</p>
+        </div>
+        <!-- 依次類推 -->
     </section>
 
-    <!-- JS -->
-    <script src="static/js/script.js"></script>
 </body>
 </html>
