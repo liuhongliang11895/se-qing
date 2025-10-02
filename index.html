@@ -11,30 +11,6 @@ body {
   background: #f0f0f0;
 }
 
-/* 輪播 */
-.carousel-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 20px;
-  position: relative;
-}
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-.carousel-item {
-  min-width: 100%;
-}
-.carousel-item img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 20px;
-}
-
 /* 卡片區 */
 .cards-grid {
   display: grid;
@@ -44,12 +20,18 @@ body {
   margin: 40px auto;
   padding: 0 10px;
 }
+
 .card {
   background: white;
   border-radius: 16px;
   overflow: hidden;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: rotate(-2deg) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 .card img {
   width: 100%;
@@ -74,28 +56,28 @@ body {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
+
+/* 標題區 */
+header {
+  text-align: center;
+  padding: 30px 10px;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+header p {
+  font-size: 1.1rem;
+  color: #333;
+}
 </style>
 </head>
 <body>
 
-<!-- 輪播區 -->
-<div class="carousel-container">
-  <div id="carousel" class="carousel">
-    <div class="carousel-item"><img src="static/picture/banner1.jpg" alt="美女1"></div>
-    <div class="carousel-item"><img src="static/picture/banner2.jpg" alt="美女2"></div>
-    <div class="carousel-item"><img src="static/picture/banner3.jpg" alt="美女3"></div>
-    <div class="carousel-item"><img src="static/picture/banner4.jpg" alt="美女4"></div>
-    <div class="carousel-item"><img src="static/picture/banner5.jpg" alt="美女5"></div>
-    <div class="carousel-item"><img src="static/picture/banner6.jpg" alt="美女6"></div>
-    <div class="carousel-item"><img src="static/picture/banner7.jpg" alt="美女7"></div>
-    <div class="carousel-item"><img src="static/picture/banner8.jpg" alt="美女8"></div>
-    <div class="carousel-item"><img src="static/picture/banner9.jpg" alt="美女9"></div>
-    <div class="carousel-item"><img src="static/picture/banner10.jpg" alt="美女10"></div>
-    <div class="carousel-item"><img src="static/picture/banner11.jpg" alt="美女11"></div>
-    <div class="carousel-item"><img src="static/picture/banner12.jpg" alt="美女12"></div>
-    <div class="carousel-item"><img src="static/picture/banner13.jpg" alt="美女13"></div>
-  </div>
-</div>
+<header>
+  <h1>高品質美女俱樂部</h1>
+  <p>這裡聚集了多位高品質美女，滑動查看她們的個人資料，點擊聯絡我們即可添加 Line</p>
+</header>
 
 <!-- 會員卡片 -->
 <div class="cards-grid">
@@ -180,13 +162,6 @@ body {
 </div>
 
 <script>
-let index = 0;
-const items = document.querySelectorAll('.carousel-item');
-setInterval(() => {
-  index = (index + 1) % items.length;
-  document.getElementById('carousel').style.transform = `translateX(-${index * 100}%)`;
-}, 3000);
-
 function addLine() {
   window.open('https://lihi.cc/ZDfqO', '_blank');
 }
@@ -194,5 +169,4 @@ function addLine() {
 
 </body>
 </html>
-
 
