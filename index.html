@@ -1,52 +1,84 @@
-﻿<!DOCTYPE html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>會員專區</title>
-  <link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>與高品質女性的相遇</title>
 
-  <!-- Facebook Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-    n.queue=[]; t=b.createElement(e); t.async=!0;
-    t.src=v; s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '你的-Pixel-ID'); 
-    fbq('track', 'PageView');
-  </script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1287795045926416');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+            src="https://www.facebook.com/tr?id=1287795045926416&ev=PageView&noscript=1">
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        /* 你原來的 CSS 可以留在 style.css 內，這裡留空或放簡單調整 */
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8f8f8; }
+    </style>
 </head>
 <body>
-
-  <!-- 頂部 Banner 輪播 -->
-  <div class="carousel">
-    <div class="slides">
-      <img src="static/picture/banner1.jpg" alt="Banner 1">
-      <img src="static/picture/banner2.jpg" alt="Banner 2">
-      <img src="static/picture/banner3.jpg" alt="Banner 3">
+    <!-- Floating Line Icon -->
+    <div class="floating-icons">
+        <div class="floating-icon line-bg breathe" onclick="addLine()">
+            <i class="fab fa-line"></i>
+            <div class="notification-badge breathe">1</div>
+        </div>
     </div>
-  </div>
 
-  <!-- 會員卡片 -->
-  <section class="member-section">
-    <h2>會員卡片</h2>
-    <div class="member-grid">
-      <div class="card">會員 A</div>
-      <div class="card">會員 B</div>
-      <div class="card">會員 C</div>
-      <div class="card">會員 D</div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden" id="hero-section">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                與高品質女性的相遇<br>
+                <span class="text-yellow-300">特別的相遇</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white opacity-90 max-w-3xl mx-auto">
+                這裡聚集了許多高品質的女性，期待能與你相遇，共同創造美好的時刻
+            </p>
 
-  <!-- Line 按鈕 -->
-  <div class="line-btn">
-    <button onclick="addLine()">加入 Line</button>
-  </div>
+            <!-- Image Carousel -->
+            <div class="relative max-w-4xl mx-auto mt-8">
+                <div id="carousel" class="carousel flex overflow-x-auto space-x-4 pb-4 snap-x snap-mandatory">
+                    <div class="flex-none w-64 h-80 snap-center">
+                        <img src="static/picture/8.jpg" alt="Profile 1" class="w-full h-full object-cover rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="flex-none w-64 h-80 snap-center">
+                        <img src="static/picture/7.jpg" alt="Profile 2" class="w-full h-full object-cover rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="flex-none w-64 h-80 snap-center">
+                        <img src="static/picture/3.jpg" alt="Profile 3" class="w-full h-full object-cover rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="static/js/script.js"></script>
+    <!-- Contact Section -->
+    <section id="section3" class="py-20 gradient-bg text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">查看更多個人資料</h2>
+        <button onclick="addLine()" class="w-64 bg-green-500 text-white py-3 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300">
+            透過 Line 聯絡
+        </button>
+    </section>
+
+    <!-- JS -->
+    <script src="static/js/script.js"></script>
 </body>
 </html>
