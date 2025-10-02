@@ -5,156 +5,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>與高品質女性的相遇</title>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1287795045926416');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1287795045926416&ev=PageView&noscript=1"></noscript>
-  <!-- End Meta Pixel Code -->
-
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="static/css/all.min.css">
   <link rel="stylesheet" href="static/css/css2.css">
-  <script src="static/js/js.js" defer></script>
 
   <style>
-    body { font-family: 'Noto Sans KR', sans-serif; }
-    .breathe { animation: breathe 2s infinite; }
-    @keyframes breathe { 0%,100%{transform:scale(1);}50%{transform:scale(1.1);} }
-    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-    .carousel { scroll-behavior: smooth; display:flex; overflow-x:auto; gap:1rem; padding-bottom:1rem; }
-    .status-dot { animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;}50%{opacity:0.5;} }
-    .floating-icons { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1000; display: flex; flex-direction: column; gap: 15px; }
-    .floating-icon { position: relative; width: 60px; height: 60px; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:white; font-size:24px; cursor:pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    .floating-icon:hover { transform: scale(1.1); }
-    .line-bg { background: linear-gradient(135deg, #00B900, #00C300); }
-    .notification-badge { position: absolute; top:-5px; right:-5px; background:#ff4757; color:white; border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:bold; }
-    @media (max-width: 768px) { .floating-icons { right:10px; } .floating-icon { width:50px; height:50px; font-size:20px; } #hero-section { min-height:calc(20vh - 8px)!important; margin-top:8px!important; } }
+    /* 基本樣式 */
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 輪播區 */
+    #carousel-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 50px auto;
+      overflow: hidden;
+    }
+
+    #carousel {
+      display: flex;
+      gap: 10px;
+      scroll-behavior: smooth;
+    }
+
+    #carousel img {
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      flex-shrink: 0;
+    }
+
+    /* 會員卡片 Grid */
+    #members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0 0 15px;
+    }
+
+    .card button {
+      margin-bottom: 15px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .card button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Floating Line 按鈕 */
+    .floating-line {
+      position: fixed;
+      right: 20px;
+      bottom: 50px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00B900, #00C300);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .floating-line:hover {
+      transform: scale(1.1);
+    }
+
+    .floating-line i {
+      color: #fff;
+      font-size: 32px;
+    }
+
+    /* 響應式 */
+    @media (max-width: 768px) {
+      #carousel img {
+        height: 250px;
+      }
+      .card img {
+        height: 200px;
+      }
+      .floating-line {
+        width: 60px;
+        height: 60px;
+      }
+      .floating-line i {
+        font-size: 26px;
+      }
+    }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+<body>
 
-  <!-- Floating Line Icon -->
-  <div class="floating-icons">
-    <div class="floating-icon line-bg breathe" onclick="addLine()">
-      <i class="fab fa-line"></i>
-      <div class="notification-badge breathe">1</div>
+  <!-- 輪播區 -->
+  <div id="carousel-container">
+    <div id="carousel">
+      <img src="static/picture/banner1.jpg" alt="banner1">
+      <img src="static/picture/banner2.jpg" alt="banner2">
+      <img src="static/picture/banner3.jpg" alt="banner3">
+      <img src="static/picture/banner4.jpg" alt="banner4">
+      <img src="static/picture/banner5.jpg" alt="banner5">
+      <img src="static/picture/banner6.jpg" alt="banner6">
+      <img src="static/picture/banner7.jpg" alt="banner7">
+      <img src="static/picture/banner8.jpg" alt="banner8">
+      <img src="static/picture/banner9.jpg" alt="banner9">
+      <img src="static/picture/banner10.jpg" alt="banner10">
+      <img src="static/picture/banner11.jpg" alt="banner11">
+      <img src="static/picture/banner12.jpg" alt="banner12">
+      <img src="static/picture/banner13.jpg" alt="banner13">
     </div>
   </div>
 
-  <!-- Hero Carousel -->
-  <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden" id="hero-section">
-    <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-          與高品質女性的相遇<br>
-          <span class="text-yellow-300">特別的相遇</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-white opacity-90 max-w-3xl mx-auto">
-          這裡聚集了許多高品質的女性，期待能與你相遇，共同創造美好的時刻
-        </p>
-      </div>
-      
-      <div class="relative max-w-4xl mx-auto">
-        <div id="carousel" class="carousel snap-x snap-mandatory">
-          <!-- 更新圖片路徑 -->
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner1.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner2.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner3.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner4.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner5.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner6.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner7.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner8.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner9.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner10.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner11.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner12.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-          <div class="flex-none w-64 h-80 snap-center"><img src="static/picture/banner13.jpg" class="w-full h-full object-cover rounded-2xl shadow-2xl"></div>
-        </div>
-      </div>
+  <!-- 會員卡片 -->
+  <div id="members">
+    <!-- 範例卡片，直接套用你13張圖片即可 -->
+    <div class="card">
+      <img src="static/picture/banner1.jpg" alt="會員1">
+      <h3>25歲，學生</h3>
+      <p>距離：1.2 公里 • 身高：162cm</p>
+      <button onclick="addLine()">聯絡我們</button>
     </div>
-  </section>
+    <div class="card">
+      <img src="static/picture/banner2.jpg" alt="會員2">
+      <h3>23歲，銀行經理</h3>
+      <p>距離：2.2 公里 • 身高：171cm</p>
+      <button onclick="addLine()">聯絡我們</button>
+    </div>
+    <div class="card">
+      <img src="static/picture/banner3.jpg" alt="會員3">
+      <h3>24歲，護理師</h3>
+      <p>距離：2.3 公里 • 身高：167cm</p>
+      <button onclick="addLine()">聯絡我們</button>
+    </div>
+    <!-- 依此類推，把 banner4 ~ banner13 填入 -->
+  </div>
 
-  <!-- Profiles Grid -->
-  <section class="py-20 bg-white dark:bg-gray-800">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-white mb-16">
-        目前上線中的會員
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- 這裡示範前8個Profile，依此類推可增加 -->
-        <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg card-hover overflow-hidden">
-          <div class="relative">
-            <img src="static/picture/banner1.jpg" class="w-full h-64 object-cover">
-            <div class="absolute top-4 left-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs flex items-center">
-              <div class="status-dot w-2 h-2 bg-white rounded-full mr-1"></div>6分鐘前上線
-            </div>
-            <div class="absolute top-4 right-4 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs">高級認證</div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-white">25歲，學生</h3>
-            <p class="text-gray-600 dark:text-gray-300 text-sm">距離：1.2 公里 • 身高：162cm</p>
-            <button onclick="goToSection3()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300">查看個人資料</button>
-          </div>
-        </div>
-        <!-- 其他Profile請依序修改圖片名稱 -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="section3" class="py-20 gradient-bg relative overflow-hidden">
-    <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">查看更多個人資料</h2>
-        <p class="text-xl text-white opacity-90 mb-12">如要查看更詳細的資訊，請點擊下方按鈕</p>
-        <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 card-hover">
-            <div class="text-center">
-              <div class="inline-flex items-center justify-center w-16 h-16 bg-green-500 rounded-full mb-4">
-                <i class="fab fa-line text-white text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">新增 Line</h3>
-              <button onclick="addLine()" class="w-full bg-green-500 text-white py-3 rounded-xl font-semibold hover:bg-green-600 transition-all duration-300">透過 Line 聯絡</button>
-            </div>
-          </div>
-        </div>
-        <div class="mt-12 bg-yellow-400 text-gray-800 rounded-2xl p-6 inline-block">
-          <p class="text-lg font-semibold"><i class="fas fa-star mr-2"></i>本俱樂部僅接待 30 歲以上台灣男士</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Floating Line -->
+  <div class="floating-line" onclick="addLine()">
+    <i class="fab fa-line"></i>
+  </div>
 
   <script>
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { document.documentElement.classList.add('dark'); }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      if (event.matches) { document.documentElement.classList.add('dark'); } else { document.documentElement.classList.remove('dark'); }
-    });
-
-    function addLine(){ fbq('track','Contact'); window.open('https://lihi.cc/ZDfqO','_blank'); }
-    function goToSection3(){ document.getElementById('section3').scrollIntoView({ behavior:'smooth' }); }
-
-    let currentIndex = 0;
+    // 輪播自動滾動
     const carousel = document.getElementById('carousel');
-    const totalImages = 13;
-    function autoScroll(){ currentIndex = (currentIndex+1)%totalImages; carousel.scrollTo({ left: currentIndex*272, behavior:'smooth' }); }
-    setInterval(autoScroll,3000);
+    const images = carousel.querySelectorAll('img');
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      carousel.scrollTo({
+        left: index * images[0].clientWidth + index*10, // gap 10px
+        behavior: 'smooth'
+      });
+    }, 3000);
+
+    // 點擊聯絡我們跳轉 Line
+    function addLine(){
+      window.open('https://lihi.cc/ZDfqO', '_blank');
+    }
   </script>
 </body>
 </html>
